@@ -2,11 +2,6 @@ function setup() {
   createCanvas(400, 400)
   background(255)
   stroke(0)
-  frameRate(12)
-  tile({
-    cols: 4,
-    rows: 4
-  })
 }
 
 function draw() {
