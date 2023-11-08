@@ -1,10 +1,11 @@
 function setup() {
   createCanvas(400, 400)
-  background(255)
-  stroke(0)
 }
 
 function draw() {
+  background(255)
+  stroke(0)
+
   let tile = width / 48
 
   for (let x = 0; x < width; x += tile) {

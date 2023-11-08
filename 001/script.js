@@ -1,13 +1,14 @@
 function setup() {
   createCanvas(400, 400)
-  background(0)
   ellipseMode(CORNER)
   angleMode(DEGREES)
-  stroke(0)
   frameRate(12)
 }
 
 function draw() {
+  background(0)
+  stroke(0)
+
   let tile = width / 12
 
   for (let x = 0; x < width; x += tile) {
