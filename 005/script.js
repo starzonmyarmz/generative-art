@@ -10,8 +10,8 @@ function setup() {
 function draw() {
   background(255)
   noStroke()
-  blendMode(DIFFERENCE)
   tile({ cols: 8 }, ({x, y, tile_width, tile_height}) => {
+    blendMode(random([DIFFERENCE, MULTIPLY]))
     fill(random(colors))
     push()
     translate(x + tile_width / 2, y + tile_height / 2)
