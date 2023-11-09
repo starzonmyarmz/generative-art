@@ -87,6 +87,7 @@ canvas {
 
 #back {
   align-items: center;
+  color: currentcolor;
   display: flex;
   left: 1rem;
   position: fixed;
