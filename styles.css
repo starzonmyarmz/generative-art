@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Overpass Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(./OverpassMono.woff2) format('woff2');
+}
+
 *,
 *::before,
 *::after {
@@ -11,7 +19,7 @@ html {
 }
 
 body {
-  font-family: 'Overpass Mono';
+  font-family: 'Overpass Mono', mono;
   margin: 0;
   min-height: 100vh;
   line-height: 1.4;
