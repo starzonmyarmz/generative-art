@@ -8,6 +8,7 @@ function setup() {
 }
 
 function draw() {
+  blendMode(BLEND)
   background(255)
   noStroke()
   tile({ cols: 8 }, ({x, y, tile_width, tile_height}) => {

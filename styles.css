@@ -83,6 +83,7 @@ textarea, select {
   left: 1rem;
   position: fixed;
   text-decoration: none;
+  user-select: none;
   top: 1rem;
 }
 
