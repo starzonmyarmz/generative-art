@@ -36,6 +36,14 @@ textarea, select {
   font: inherit;
 }
 
+canvas {
+  display: block;
+  object-fit: contain;
+  max-height: 100vh;
+  max-width: 100vw;
+  padding: 1rem;
+}
+
 #gallery {
   display: grid;
   gap: 1rem;

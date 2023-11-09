@@ -2,7 +2,7 @@ let colors
 let rotations
 
 function setup() {
-  createCanvas(400, 400)
+  createCanvas(800, 800)
   colors = ["#e63946", "#f1faee", "#a8dadc", "#457b9d", "#1d3557"]
   rotations = [0, HALF_PI, PI, HALF_PI + PI]
 }

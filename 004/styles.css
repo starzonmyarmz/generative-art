@@ -11,8 +11,3 @@ body {
   display: grid;
   place-items: center;
 }
-
-canvas {
-  border: 1px solid;
-  padding: 2px;
-}
