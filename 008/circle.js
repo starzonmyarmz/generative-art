@@ -1,9 +1,9 @@
 class Circle {
-  constructor(x, y, r) {
-    this.growing = true
+  constructor(x, y, r, hex) {
     this.x = x
     this.y = y
     this.r = r
+    this.c = hex
   }
 
   edges() {
@@ -15,13 +15,13 @@ class Circle {
     )
   }
 
-  grow() {
-    this.r += .5
-  }
-
   show() {
+    // fill(this.c)
+    // noStroke()
+
     fill(255)
-    stroke(255 / 2)
+    stroke(this.c)
+
     circle(this.x, this.y, this.r * 2)
   }
 }

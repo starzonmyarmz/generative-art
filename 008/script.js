@@ -1,4 +1,4 @@
-let circles = []
+let padding = 0
 
 function setup() {
   createCanvas(800, 800)
@@ -8,78 +8,45 @@ function setup() {
 function draw() {
   background(255)
 
-  for (let i = 0; i < circles.length; i++) {
-    let c = circles[i]
-    c.show()
+  let circles = []
 
-    // Is it a growing one?
-    if (c.growing) {
-      c.grow()
+  function addCircles(hex, num, size) {
+    for (let i = 0; i < num; i++) {
+      let circle = new Circle(random(width), random(height), size, hex)
+      let overlapping = false
 
-      // Does it overlap any previous circles?
-      for (let j = 0; j < circles.length; j++) {
-        let other = circles[j]
+      for (let p = 0; p < circles.length; p++) {
+        let d = dist(circle.x, circle.y, circles[p].x, circles[p].y)
 
-        if (other != c) {
-          let d = dist(c.x, c.y, other.x, other.y)
-
-          if (d - 1 < c.r + other.r) {
-            c.growing = false
-          }
+        if (d < circle.r + circles[p].r + padding) {
+          overlapping = true
+          break
         }
       }
 
-      // Is it stuck to an edge?
-      if (c.growing) {
-        c.growing = !c.edges()
+      if (!overlapping && !circle.edges()) {
+        circles.push(circle)
       }
     }
   }
 
-  // Let's try to make a certain number of new circles each frame
-  // More later
-  let target = 1 + constrain(floor(frameCount / 120), 0, 20)
+  // Warm Yellow: #FFD700 (Yellow)
+  // Flame Orange: #FFA500 (Orange)
+  // Goldenrod: #DAA520 (Yellow-Orange)
+  // Fiery Red: #FF4500 (Red-Orange)
+  // Burnt Sienna: #E97451 (Red)
+  // Ember Brown: #8B4513 (Brown)
+  // Charcoal Black: #333333 (Black)
 
-  // How many
-  let count = 0
+  addCircles('#FFD700', 200, 128)
+  addCircles('#FFA500', 200, 64)
+  addCircles('#DAA520', 1000, 32)
+  addCircles('#FF4500', 3000, 16)
+  addCircles('#E97451', 6000, 8)
+  addCircles('#8B4513', 12000, 4)
+  addCircles('#333333', 24000, 2)
 
-  // Try N times
-  for (let i = 0; i < 1000; i++) {
-    if (addCircle()) {
-      count++
-    }
+  circles.forEach(circle => circle.show())
 
-    // We made enough
-    if (count == target) {
-      break
-    }
-  }
-
-  // We can't make any more
-  if (count < 1) {
-    noLoop()
-  }
-}
-
-// Add one circle
-function addCircle() {
-  // Here's a new circle
-  let newCircle = new Circle(random(width), random(height), 1)
-
-  // Is it in an ok spot?
-  for (let i = 0; i < circles.length; i++) {
-    let other = circles[i]
-    let d = dist(newCircle.x, newCircle.y, other.x, other.y)
-
-    if (d < other.r + 4) {
-      newCircle = undefined
-      break
-    }
-  }
-
-  // If it is, add it
-  if (newCircle) {
-    circles.push(newCircle)
-    return true
-  }
+  noLoop()
 }
