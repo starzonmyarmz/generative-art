@@ -10,6 +10,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  user-select: none;
 }
 
 html {
@@ -25,15 +26,16 @@ body {
   line-height: 1.4;
 }
 
-h1, h2,
-h3, h4 {
+h2 {
+  background: #171717;
+  bottom: 0.5rem;
+  color: #fff;
+  font-weight: 300;
+  line-height: 1;
   margin: 0;
-  text-wrap: balance;
-}
-
-input, button,
-textarea, select {
-  font: inherit;
+  padding: 0.5rem 0.5rem 0.3rem;
+  position: absolute;
+  right: 0.5rem;
 }
 
 canvas {
@@ -51,23 +53,17 @@ canvas {
   list-style: none;
   margin: 0;
   padding: 1rem;
-}
 
-@media (width >= 600px) {
-  #gallery {
+  @media (width >=600px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
 
-@media (width >= 960px) {
-  #gallery {
+  @media (width >=960px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-}
 
-@media (width >= 1320px) {
-  #gallery {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  @media (width >=1320px) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
@@ -90,17 +86,6 @@ canvas {
 #gallery a:hover img {
   opacity: 1;
   transform: scale(1.1);
-}
-
-#gallery h2 {
-  background: #171717;
-  bottom: 0.5rem;
-  color: #fff;
-  font-weight: 300;
-  line-height: 1;
-  padding: 0.5rem 0.5rem 0.3rem;
-  position: absolute;
-  right: 0.5rem;  
 }
 
 #back {
